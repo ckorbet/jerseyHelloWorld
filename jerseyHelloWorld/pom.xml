@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    	     
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jerseyHelloWorld</groupId>
+  <artifactId>jerseyHelloWorld</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>Jersey Hello World Example</name>
+  <description>Jersey Hello World Example</description>
+  
+  <properties>
+        <!-- Propiedad para encoding independiente de plataforma -->
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <!-- Versión del Servlet -->
+        <servlet.version>2.5</servlet.version>
+        <!-- Versión del codigo fuente Java -->
+        <source.version>1.6</source.version>
+        <!-- Versión para compilacion/ejecución Java -->
+        <target.version>1.6</target.version>
+        <!-- Version para maven-compiler-plugin -->
+        <compiler.version>3.1</compiler.version>
+        <!-- Version para el maven-war-plugin -->
+        <war.version>2.4</war.version>
+        <!-- Version para el maven-surefire-plugin -->
+        <surefire.version>2.12.2</surefire.version>
+        <!-- Version de SLF4J -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<!-- Version de LogBack -->
+		<logback.version>1.0.13</logback.version>
+		<!-- Version de Groovy -->
+		<groovy.version>2.1.9</groovy.version>
+  </properties>
+  
+  <build>
+        <finalName>jerseyHelloWorld</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.version}</version>
+                <configuration>
+		          <source>${source.version}</source>
+		          <target>${target.version}</target>
+		        </configuration>
+            </plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<source>${source.version}</source>
+		          	<target>${target.version}</target>
+				</configuration>
+				<version>${war.version}</version>
+			</plugin>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <configuration>
+		          <skipTests>true</skipTests>
+		          <source>${source.version}</source>
+		          <target>${target.version}</target>
+		        </configuration>
+		        <version>${surefire.version}</version>
+		      </plugin>
+        </plugins>
+    </build>
+    
+  
+  	<dependencies>
+  	    <!--
+        ########## SLF4J para LogBack ##########
+		-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<!--
+        ########## LogBack ##########
+		-->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		
+		<!--
+        ########## Groovy ##########
+		-->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy.version}</version>
+		</dependency>
+		
+		<!--
+        ########## SERVLET ##########
+        -->
+        <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+        <!--
+        ########## JERSEY ##########
+        -->
+        <dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.18</version>
+		</dependency>  	    
+  	    
+  	</dependencies> 
+  
+</project>
